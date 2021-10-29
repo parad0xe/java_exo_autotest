@@ -1,4 +1,4 @@
-package java_exo_test;
+package java_exo_test.vehicle;
 
 abstract class Vehicle {
     protected String brand;
