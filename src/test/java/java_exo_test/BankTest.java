@@ -21,12 +21,6 @@ public class BankTest {
     }
 
     @Test
-    void should_be_correct_age() {
-        assertEquals(20, this.majorClient.getClientInfo().getAge());
-        assertEquals(17, this.minorClient.getClientInfo().getAge());
-    }
-
-    @Test
     void should_be_major() {
         assertTrue(this.majorClient.getClientInfo().isMajor());
     }
@@ -39,6 +33,15 @@ public class BankTest {
     @Test
     void should_be_default_balance() {
         assertEquals(80, this.majorClient.getBankAccount().getBalance());
+        assertEquals(80, this.minorClient.getBankAccount().getBalance());
+    }
+
+    @Test
+    void should_not_add_negative_amount() {
+        this.majorClient.getBankAccount().push(-30);
+        assertEquals(80, this.majorClient.getBankAccount().getBalance());
+
+        this.minorClient.getBankAccount().push(-40);
         assertEquals(80, this.minorClient.getBankAccount().getBalance());
     }
 
